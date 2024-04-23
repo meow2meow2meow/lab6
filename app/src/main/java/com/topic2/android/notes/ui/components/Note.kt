@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.topic2.android.notes.domain.model.NoteModel
 import com.topic2.android.notes.util.fromHex
+import androidx.compose.foundation.clickable
 
 
 
@@ -35,6 +36,7 @@ fun Note(
         .fillMaxWidth()
         .heightIn(min = 64.dp)
         .background(Color.White, backgroundShape)
+        .clickable(onClick = {onNoteClick(note)})
     ) {
         NoteColor( modifier = Modifier
             .align(Alignment.CenterVertically)
@@ -89,4 +91,5 @@ fun Note(
 
     @Composable
     fun NotePreview() {
+        Note(note = NoteModel(1, "Заметка 1 ", "Содержимое 1", null))
     }
